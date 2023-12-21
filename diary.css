@@ -1,0 +1,70 @@
+*{
+    font-size: 16px;
+}
+body{
+    background-color: aliceblue;
+    border: 4px double red;
+    margin: auto;
+    width: 24.26rem;
+}
+.header{
+    display: flex;
+    border: 1px solid red;
+    padding: 2px;
+    width: 24rem;
+}
+.header__day{
+    width: 7rem;
+    height: 1.5rem;
+    border: 1px solid red;
+    margin-right: 2px;
+    font-weight: 600;
+    line-height: 1.5;
+    text-align: center;
+    align-items: center;
+}
+.header__weather{
+    display: flex;
+    width: 17rem;
+    height: 1.5rem;
+    border: 1px solid red;
+    text-align: center;
+    align-items: center;
+
+}
+.header__text{
+    margin-left: 3px;
+    margin-right: 3px;
+}
+
+.header__input{
+    display: flex;
+    width: 13rem;
+    justify-content: space-between;
+    align-items: center;
+
+}
+.title{
+    border: 1px solid red;
+    
+    text-align: center;
+    align-items: center;
+
+}
+.title__img{
+    display: block;
+    width: 350px;
+    align-items: center;
+    text-align: center;
+    margin: auto;
+}
+.content{
+    border: 1px solid red;
+    font-size: 3rem;
+    width: 24.3rem;
+    height: 12rem;
+}
+.td{
+    font-size: 1.5rem;
+    text-align: center;
+}
