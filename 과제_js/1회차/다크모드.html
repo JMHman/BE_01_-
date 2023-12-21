@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>다크모드</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        html[
+        ]
+        body{
+            width: 100%;
+            height: 100%;
+            margin: 0;
+        
+        }
+        div{margin: 4px;}
+    </style>
+</head>
+<body>
+<div>
+    <input type="button" value="white" id="white">
+    <input type="button" value="black" id="black">
+
+    <script>
+        const whiteBtn = document.getElementById("white");
+
+        whiteBtn.addEventListener('click', () => {
+            document.body.style.backgroundColor = 'white';
+        });
+        const blackBtn = document.getElementById("black");
+
+        blackBtn.addEventListener('click', () => {
+        document.body.style.backgroundColor = 'black';
+        });
+
+    </script>
+</div>
+    
+</body>
+</html>
