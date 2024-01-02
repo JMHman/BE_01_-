@@ -2,7 +2,11 @@ team: oz_service
 
 leader: 희은
 
+<<<<<<< HEAD
 coach: 영조
+=======
+coach: 지성
+>>>>>>> f35f116 (service팀 변경)
 
 member:
 - 세형
