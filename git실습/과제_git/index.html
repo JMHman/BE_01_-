@@ -8,12 +8,20 @@
 </head>
 <body>
     <div class="container mt-3">
-        <h3 class="mt-5 mb-3 badge text-bg-success position-relative fs-2">신규 등록 상품 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-            <span class="today"></span>
-            </span>
-        </h3>
-       
+      <h3 class="mt-5 mb-3 badge text-bg-success position-relative fs-2">신규 등록 상품 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+          <span class="today"></span>
+        </span>
+      </h3>
+      <div class="d-flex justify-content-sm-end">
+      <div>
+        <input type="checkbox" class="btn-check" name="options" id="option1" autocomplete="off">
+        <label class="btn btn-outline-success fw-bold" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;" for="option1">남성</label>
+
+        <input type="checkbox" class="btn-check" name="options" id="option2" autocomplete="off">
+        <label class="btn btn-outline-success fw-bold" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;" for="option2">여성</label>
+      </div>
+      </div>
         <form class="row row-cols-lg-auto g-3 align-items-center">      
             <div class="col-12">
               <label class="visually-hidden" for="inlineFormSelectPref">Preference</label>
@@ -33,23 +41,8 @@
                   </div>
                 </div>
               </form>
-              <nav class="navbar navbar-expand-lg">
-                <div class="container-fluid justify-content-center">
-                  <ul class="nav nav-tabs">
-                    <li class="nav-item">
-                      <button type="button" class="nav-link link-success active" aria-current="page" href="#">양성</button>
-                    </li>
-                    <li class="nav-item">
-                      <button type="button" class="nav-link link-success" href="#">남성</button>
-                    </li>
-                    <li class="nav-item">
-                      <button type="button" class="nav-link link-success" href="#">여성</button>
-                    </li>
-                  </ul>
-                  </div>
-                </div>
-              </nav>
-              <div class="container mt-3">
+              
+            <div class="container mt-3">
                 <table class="table table-sm">
                   <thead>
                     <!-- 열의 속성값을 나타내는 코드를 작성해주세요 (예 : 카테고리, 브랜드, 상품명, 가격) -->
@@ -63,6 +56,7 @@
                 <!-- 추후 크롤링한 데이터가 들어가는 자리 -->
             </tbody>
         </table>
+    </div>
     </div>
     <nav aria-label="...">
         <ul class="pagination justify-content-center">
@@ -87,7 +81,7 @@
    <footer>
     <div style="border-top: 1px solid #000">
     <div class="d-flex justify-content-center">
-        <a class="icon-link icon-link-hover link-success fs-2" style="--bs-icon-link-transform: translate3d(0, -.125rem, 0);" href="https://github.com/JMHman/BE_01_JeonMyungHwan.git" target="_blank">
+        <a class="icon-link icon-link-hover link-success fs-2" style="--bs-icon-link-transform: translate3d(0, -.125rem, 0);" href="https://github.com/JMHman/projact_oz.git" target="_blank">
             <svg class="bi" aria-hidden="true"><use xlink:href="#clipboard"></use></svg>
             <i class="bi bi-github"></i>
         </a>
