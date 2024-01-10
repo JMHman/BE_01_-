@@ -15,37 +15,41 @@
       </h3>
       <div class="d-flex justify-content-sm-end">
       <div>
-        <input type="checkbox" class="btn-check" name="options" id="option1" autocomplete="off">
+        <div id="status" class="badge text-bg-success">모든 옷입니다.</div>
+        <input type="checkbox" class="btn-check" name="options" id="option1" autocomplete="off"  >
         <label class="btn btn-outline-success fw-bold" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;" for="option1">남성</label>
 
-        <input type="checkbox" class="btn-check" name="options" id="option2" autocomplete="off">
+        <input type="checkbox" class="btn-check" name="options" id="option2" autocomplete="off" >
         <label class="btn btn-outline-success fw-bold" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;" for="option2">여성</label>
       </div>
       </div>
         <form class="row row-cols-lg-auto g-3 align-items-center">      
-            <div class="col-12">
+            <div class="col-3">
               <label class="visually-hidden" for="inlineFormSelectPref">Preference</label>
-              <select class="form-select" id="inlineFormSelectPref" aria-label="Default select example">
-                <option value="">카테고리</option>  <!-- 카테고리 셀렉트 코드를 넣어주세요-->
-                <option value="top">상의</option>  <!-- 카테고리 셀렉트 코드를 넣어주세요-->
-                <option value="bottum">하의</option>  <!-- 카테고리 셀렉트 코드를 넣어주세요-->
-                <option value="shoes">신발</option>  <!-- 카테고리 셀렉트 코드를 넣어주세요-->
-                <option value="accessories">패션잡화</option>  <!-- 카테고리 셀렉트 코드를 넣어주세요-->
+              <select class="form-select" id="inlineFormSelectPref" aria-label="Default select example" style="max-width: 150px;">
+                <option value="">카테고리</option>  
+                <option value="top">상의</option>  
+                <option value="bottum">하의</option> 
+                <option value="shoes">신발</option>
+                <option value="accessories">패션잡화</option>
                 
               </select>
             </div>
-            <div class="col-3 ">
-                <div class="input-group mb-3 col-3 col-auto mt-3 ">
-                    <input type="text" class="form-control" placeholder="제품명을 입력해주세요." aria-label="Recipient's username" aria-describedby="button-addon2">
-                    <button class="btn btn-outline-success" type="submit" id="button-addon2">Button</button>
+            <div class="col-6 ">
+                <div class="input-group mb-3 col-3 col-auto mt-3">
+                    <input type="text" class="form-control" placeholder="제품명을 입력해주세요." aria-label="Recipient's username" aria-describedby="button-addon2" >
+                    <button class="btn btn-outline-success" type="submit" id="button-addon2">검색</button>
                   </div>
                 </div>
               </form>
-              
+              <div class="d-grid gap-2 d-md-flex justify-content-md-end" >
+                <input type="button" value="삭제" class="btn btn-outline-success " style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;" onclick="removeRow()">
+              </div>
             <div class="container mt-3">
                 <table class="table table-sm">
                   <thead>
                     <!-- 열의 속성값을 나타내는 코드를 작성해주세요 (예 : 카테고리, 브랜드, 상품명, 가격) -->
+                    <th scope="col"></th>
                     <th scope="col">카테고리</th>
                     <th scope="col">브랜드</th>
                     <th scope="col">상품명</th>
@@ -89,6 +93,7 @@
     </div>
    </footer>
    
+   <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
    <script>
       // 크롤링한 데이터를 아래와 같은 형태의 객체 배열로 가정합니다.
       // 추후 데이터베이스에 있는 데이터를 쿼리문으로 불러 올 수 있게 쿼리르 작성해 볼 수 있음
@@ -100,16 +105,51 @@
           // ...
       ];
       
-      const dataTable = document.getElementById('data-table');
+      const Male = document.getElementById("option1")
+      const Female = document.getElementById("option2")
+      let Status = document.getElementById("status")
       
+      let add = document.addEventListener("click",function(){
+        
+        
+        
+        
+        
+        if (Male.checked && Female.checked == true ){
+          Status.textContent = "남여 공용 입니다."
+          
+        } else if (Male.checked == true){
+          Status.textContent = "남성복 입니다." 
+
+        } else if (Female.checked == true){
+            Status.textContent = "여성복 입니다."
+
+        } else {
+          Status.textContent = "모든 옷입니다."
+        }
+
+      })
+      
+
+
+      const dataTable = document.getElementById('data-table');
+      // const inPut = document.createElement("input")
+      // inPut.setAttribute("type","checkbox")
+      // inPut.setAttribute("class","delet")
       data.forEach((item) => {
           const row = dataTable.insertRow();
-          row.insertCell(0).innerHTML = item.category;
-          row.insertCell(1).innerHTML = item.brand;
-          row.insertCell(2).innerHTML = item.product;
-          row.insertCell(3).innerHTML = item.price;
-          row.insertCell(4).innerHTML = item.gender;
+          row.insertCell(0).innerHTML = "<input type=checkbox class=delbtn>"
+          row.insertCell(1).innerHTML = item.category;
+          row.insertCell(2).innerHTML = item.brand;
+          row.insertCell(3).innerHTML = item.product;
+          row.insertCell(4).innerHTML = item.price;
+          row.insertCell(5).innerHTML = item.gender;
       });
+
+      function removeRow() {
+        dataTable.deleteRow(dataTable.clickedRowIndex);
+      }
+      
       let todayData = document.querySelector(".today")
       const today = new Date()
       let year = today.getFullYear()

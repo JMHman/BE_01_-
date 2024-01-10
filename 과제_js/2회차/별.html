@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>별</title>
+</head>
+<body>
+    <h3>별 트리야</h3>
+    <div>
+        <h6>1번 별</h6>    
+        <div id="starone"></div>
+    </div>
+    <div>
+        <h6>2번 별</h6>    
+        <div id="startwo"></div>
+    </div>
+    <div>
+        <h6>3번 별</h6>    
+        <div id="starthree"></div>
+    </div>
+
+    <script>
+        const starOne = document.getElementById("starone")
+        let starTwo = document.getElementById("startwo")
+        let starThree = document.getElementById("starthree")
+        
+        let starA
+        let starB
+        let starC
+
+        
+        for(let i = 0; i < linecount; i++) {
+	    for(let j = 0; j <= i; j++) {
+        starA += '*';
+        }
+  	    starA += '\n';
+        }
+        
+        for(let i = 0; i < linecount; i++) {
+	    for(let j = 0; j < linecount - i; j++) {
+        starB += '*';
+        }
+  	    starB += '\n';
+        }
+        
+
+        for(let i = 0; i < linecount; i++) {
+	    for(let j = linecount; j > i; j--) {
+      	starC += ' ';
+        }
+  	    for(k = 0; k < (2*i)+1; k++){
+   		starC += '*';
+        }
+  	    starC('\n')
+        }
+
+        starOne.innerText = document.write(starA)
+
+    </script>
+</body>
+</html>

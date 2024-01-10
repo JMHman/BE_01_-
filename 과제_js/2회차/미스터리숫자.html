@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <form action="">
+       
+       <input type="text" id="answer" value="">
+       <button id="draw">확인</button>
+       
+       <p id="number"></p>
+       <div id="btnbox">
+        <input id="resetbtn" type="reset" value="다시하기" style="display: none;">
+       </div>
+    </form> 
+       
+    <script>
+        const button = document.getElementById('draw')
+        const p = document.getElementById('number')
+        const BtnBox = document.getElementById("btnbox")
+        let input = document.getElementById("answer")
+        let rn = Math.random() 
+        
+        const resetBtn = document.getElementById("resetbtn")
+        
+        const MAX_NUM = 10
+        const MIN_NUM = 1
+        
+        let question = Math.floor(Math.random() * MAX_NUM) + MIN_NUM
+        
+        console.log(question)
+        
+        
+        button.addEventListener('click',function(){
+            console.log(input.value)
+            //     p.textContent = (Math.floor(Math.random() * MAX_NUM) + MIN_NUM) 
+            if(question == input.value){
+                p.textContent = "정답"
+                resetBtn.setAttribute("style","display: block;")
+                return;
+            } else if(question > input.value) {
+                p.textContent = "UP"
+            } else if(input.value > question) {
+                p.textContent = "DOWN"
+            }
+    
+        }) 
+
+    </script>
+</body>
+</html>
