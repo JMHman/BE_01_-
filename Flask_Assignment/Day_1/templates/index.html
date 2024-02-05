@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #name {
+      color: red;
+    }
+    #username {
+      color: blue;
+    }
+  </style>
+</head>
+<body>
+  <ul>
+    {% for i in data %} <!-- data에 요소가 하나만 존재하기 떄문에 '.요소' 로 하지않고 그대로 사용한다. 저렇게 사용하는건 키:값 으로 나눠진 딕셔너리일때 사용한다 -->
+    <li><h2><span id="name">name</span> : {{ i.name }} , <span id="username">username :</span> {{ i.username }}</h2></li>
+    {% endfor %}
+  </ul>
+  
+</body>
+</html>
