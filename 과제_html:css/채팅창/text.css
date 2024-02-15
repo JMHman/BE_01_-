@@ -1,0 +1,35 @@
+.chat-screen__texts{
+    padding: 0;
+    list-style-type: none;
+
+}
+.chat-screen__texts > .text{
+    background-color: rgb(133, 137, 229);
+    width: 280px;
+    height: 40px;
+    margin: 0 0 10px 0;
+    padding: 10px;
+    border-radius: 8px;
+    line-height: 20px;
+    position: relative;
+    left: 20px;
+}
+.chat-screen__texts > .text::after{
+    content: "";
+    border-right: 16px solid rgb(133, 137, 229);
+    border-top: 16px solid transparent;
+    border-bottom-right-radius: 10px;
+    position: absolute;
+    top: 23px;
+    left: -10px;    
+}
+
+
+.chat-screen__texts > .text:hover{
+    background-color: rgb(91, 91, 239);
+    transition: background-color 1.5s 200ms ease-in;
+}
+.chat-screen__texts > .text:hover::after{
+    border-right: 16px solid rgb(91, 91, 239);
+    transition:  border-right 1.5s 200ms ease-in;
+}

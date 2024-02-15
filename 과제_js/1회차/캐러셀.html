@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>사진 바꾸기</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        
+        body{
+            width: 100%;
+            height: 100%;
+            margin: 0;
+        }
+        .carousrl-wrapper {
+            width: 500px;
+            height: 300px;
+            overflow: hidden;
+        }
+        .carousrl-wrapper > .carousrl {
+            display: flex;
+            transform: translate3d (0, 0, 0);
+            transition: transform 0.2s;
+            
+        }
+        .carousrl-wrapper > .carousrl > img {
+            width: 500px;
+            height: 300px;
+        }
+        
+        .somebody{
+            background-color: #000;
+            
+        }
+        div{margin: 4px;}
+        
+    </style>
+</head>
+<body id="body">
+<div>
+    <div class="carousrl-wrapper">
+        <div class="carousrl">
+            <img src="IMG_1.JPG">
+            <img src="IMG_2.JPG">
+            <img src="IMG_3.JPG">
+        </div>
+    </div>    
+    <input type="button" value="black" id="black">
+    <input type="button" value="1번" id="noone">
+    <input type="button" value="2번" id="notwo">
+    <input type="button" value="3번" id="nothree">
+    <script>
+        const AnyBody = document.getElementById("body");
+        const blackBtn = document.getElementById("black");
+        const Carousrl = document.querySelector(".carousrl");
+        const NoOneBtn = document.getElementById("noone")
+        const NoTwoBtn = document.getElementById("notwo")
+        const NoThreeBtn = document.getElementById("nothree")
+        
+        blackBtn.addEventListener('click', function() {
+            AnyBody.classList.toggle('somebody')
+            if(blackBtn.value === "black"){
+                blackBtn.setAttribute("value","white")
+            } else if(blackBtn.value === "white") {
+                blackBtn.setAttribute("value","black")
+            }
+            
+        });
+        
+        NoOneBtn.addEventListener('click', function(){
+            Carousrl.style.transform = `translate3d (0, 0, 0)`; 
+        });
+        
+        NoTwoBtn.addEventListener('click', function(){
+            Carousrl.style.transform = `translate3d (-500px, 0, 0)`;
+        });
+
+
+        NoThreeBtn.addEventListener('click', function(){            
+            Carousrl.style.transform = `translate3d (-1000px, 0, 0)`;
+        });
+
+    </script>
+</div>
+    
+</body>
+</html>

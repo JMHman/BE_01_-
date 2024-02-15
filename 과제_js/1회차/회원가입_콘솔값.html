@@ -1,0 +1,127 @@
+<!--
+- input을 사용하기
+- 지역은 select를 사용하기
+- button 또는 input type=submit을 사용하기
+- 이메일, 이름, 비밀번호, 휴대폰 번호 필드를 만들어주시고
+  type을 설정
+- select로 지역을 만들기
+- radio로 성별을 선택하기
+- 버튼이나 input으로 submit을 만들기
+-->
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>회원가입 양식</title>
+</head>
+<body>
+  <form id="form">
+    <h1>회원가입</h1>
+    <fieldset>
+      <legend>개인 정보</legend>
+      <label for="name">• 이름 :</label>
+      <input type="name" id="name" placeholder="이름을 입력해주세요.">
+      <br><br>
+      <label for="pw" >• 비밀번호 :</label>
+      <input type="password" id="pw" placeholder="대,소문자 구분없이 8이상">
+      <label for="pw2" >• 비밀번호 확인 :</label>
+      <input type="password" id="pw2" placeholder="비밀번호 확인">
+      <br><br>
+      <label for="email" >• 이메일 :</label>
+      <input type="email" id="email" placeholder="이메일을 입력해주세요.">
+      <br><br>
+      <div class="phone">
+      <label for="phone-number">• 전화번호 :</label>
+      <select name="phone-number" class="phone-number" id="PN1">
+        <option value="010" selected>010</option>
+        <option value="011">011</option>
+        <option value="012">012</option>
+        <option value="013">013</option>
+      </select>
+      -<input type="tel" size="4" maxlength="4" class="phone-number" name="phone-number" id="PN2">
+      -<input type="tel" size="4" maxlength="4" class="phone-number" name="phone-number" id="PN3">
+      </div>
+      <br><br>
+      <div id="gender">
+      <label for="genders">• 성별 : </label>
+      <input name="g" type="radio" id="man" value="남성">
+      <label for="man">남성</label>
+      <input name="g" type="radio" id="woman" value="여성">
+      <label for="man">여성</label>
+      <input name="g" type="radio" id="superman" value="마법의_성">
+      <label for="man">마법의 성</label>
+      </div>
+
+    </fieldset>
+    <fieldset>
+      <legend>선택 사항</legend>
+     <label for="live">• 지역 :</label> 
+     <select name="live" id="live">
+      <option value="서울시" >서울시</option>
+      <option value="경기도" >경기도</option>
+      <option value="충청남도" >충청남도</option>
+      <option value="충청북도" >충청북도</option>
+      <option value="전라남도" >전라남도</option>
+      <option value="전라북도" >전라북도</option>
+      <option value="경상남도" >경상남도</option>
+      <option value="경상북도" >경상북도</option>
+      <option value="제주도" >제주도</option>
+     </select>
+     <br><br>
+     <div id="age">
+     <label for="ages">• 연령대 :</label>
+     <input type="radio" id="teen" name="age" value="10대">
+     <label for="teen">10대</label>
+     <input type="radio" id="twenty" name="age" value="20대">
+     <label for="twenty">20대</label>
+     <input type="radio" id="thirty" name="age" value="30대">
+     <label for="thirty">30대</label>
+     <input type="radio" id="foorty" name="age" value="40대">
+     <label for="foorty">40대</label>
+     <input type="radio" id="fifty" name="age" value="50대">
+     <label for="fifty">50대</label>
+     <input type="radio" id="other" name="age" value="그_외">
+     <label for="other">그 외</label>
+     </div>
+
+    </fieldset>
+    <p style="color: red;" >&nbsp;&nbsp;* 잘 작성하였는지 제출 전 한번 더 확인해주세요.</p>
+    &nbsp;&nbsp;
+    <button id="join" type="submit">회원가입</button> &nbsp;
+    <button type="reset">되돌아가기</button>
+  </form>
+    <script>
+  
+  const form = document.getElementById("form")
+
+      form.addEventListener("submit",function(event){ 
+        event.preventDefault()
+
+
+        let Name = event.target.name.value
+        let Pw1 = event.target.pw.value
+        let Pw2 = event.target.pw2.value
+        let Email = event.target.email.value
+        let phone1 = event.target.PN1.value
+        let phone2 = event.target.PN2.value
+        let phone3 = event.target.PN3.value
+        let Gender = document.querySelector('input[name="g"]:checked').value
+        let Live = event.target.live.value
+        let Age = event.target.age.value
+        
+        console.log(Name)
+        console.log(Pw1)
+        console.log(Pw2)
+        console.log(Email)
+        console.log(phone1)
+        console.log(phone2)
+        console.log(phone3)
+        console.log(Gender)
+        console.log(Live)
+        console.log(Age)
+
+      })
+    </script>
+  </body>
+</html>
