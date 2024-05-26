@@ -8,7 +8,8 @@ services:
       - "443:443"
     volumes:
       - ./nginx:/etc/nginx/conf.d
-      - /etc/letsencrypt:/etc/letsencrypt:ro
+      - /etc/ssl/certs/localhost.dev.crt:/etc/ssl/certs/localhost.dev.crt
+      - /etc/ssl/private/localhost.dev.key:/etc/ssl/private/localhost.dev.key
     depends_on:
       - django
       - daphne
