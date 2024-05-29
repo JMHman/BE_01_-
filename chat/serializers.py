@@ -39,8 +39,9 @@ class ChatFileSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = ChatFile
-        fields = "__all__"
-
+        # fields = "__all__"
+        fields = ["id", "sender_data", "sender", "room", "file_url", "file_name", "created_at"]
+        extra_kwargs = {"sender": {"write_only": True}}
 
 class ChatMessageSerializer(serializers.ModelSerializer):
     room = serializers.PrimaryKeyRelatedField(queryset=ChatRoom.objects.all())
@@ -48,8 +49,9 @@ class ChatMessageSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = ChatMessage
-        fields = "__all__"
-
+        # fields = "__all__"
+        fields = ["id", "sender_data", "sender", "room", "content", "created_at"]
+        extra_kwargs = {"sender": {"write_only": True}}
 
 class ChatRoomSerializer(serializers.ModelSerializer):
     participant_data = UserChatSerializer(source="participant", many=True, read_only=True)

@@ -20,7 +20,7 @@ from .serializers import (
 
 
 class MyPagination(PageNumberPagination):
-    page_size = 1
+    page_size = 10
     page_size_query_param = "page_size"
 
 
@@ -137,11 +137,15 @@ class ChatRoomNameRetrieveUpdateAPIView(generics.RetrieveUpdateAPIView):
     serializer_class = ChatRoomNameUpdateSerializer
     permission_classes = [permissions.IsAuthenticated, IsParticipant]
 
+from django.utils import timezone
+import logging
+
+logger = logging.getLogger(__name__)
+
 
 class ChatMessageCreateAPIView(generics.CreateAPIView):
     queryset = ChatMessage.objects.all()
     serializer_class = ChatMessageSerializer
-    # permission_classes = [permissions.IsAuthenticated, IsSender]
     permission_classes = [permissions.AllowAny]
 
     def create(self, request, *args, **kwargs):
@@ -150,21 +154,7 @@ class ChatMessageCreateAPIView(generics.CreateAPIView):
         sender_id = request.data.get("sender")
         message_content = request.data.get("content")
 
-        # 채팅방 객체 가져오기
-        try:
-            chatroom = ChatRoom.objects.get(id=chatroom_id)
-        except ChatRoom.DoesNotExist:
-            return Response({"error": "채팅방을 찾을 수 없습니다."}, status=status.HTTP_404_NOT_FOUND)
-
-        # 채팅방의 참가자 목록에서 작성자 찾기
-        if sender_id not in chatroom.participant.values_list("id", flat=True):
-            return Response(
-                {"error": "채팅방에 참가하지 않은 유저는 메시지를 작성할 수 없습니다."},
-                status=status.HTTP_403_FORBIDDEN,
-            )
-
         return super().create(request, *args, **kwargs)
-
 
 class ChatMessageDeleteAPIView(generics.DestroyAPIView):
     queryset = ChatMessage.objects.all()
